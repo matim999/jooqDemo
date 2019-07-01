@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/test</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+      <mapping class="com.example.demo.hibernate.model.Actor"/>
+      <mapping class="com.example.demo.hibernate.model.Address"/>
+      <mapping class="com.example.demo.hibernate.model.Category"/>
+      <mapping class="com.example.demo.hibernate.model.City"/>
+      <mapping class="com.example.demo.hibernate.model.Country"/>
+      <mapping class="com.example.demo.hibernate.model.Customer"/>
+      <mapping class="com.example.demo.hibernate.model.Film"/>
+      <mapping class="com.example.demo.hibernate.model.FilmActor"/>
+      <mapping class="com.example.demo.hibernate.model.FilmCategory"/>
+      <mapping class="com.example.demo.hibernate.model.Inventory"/>
+      <mapping class="com.example.demo.hibernate.model.Language"/>
+      <mapping class="com.example.demo.hibernate.model.Payment"/>
+      <mapping class="com.example.demo.hibernate.model.Rental"/>
+      <mapping class="com.example.demo.hibernate.model.Staff"/>
+      <mapping class="com.example.demo.hibernate.model.Store"/>
+      <mapping class="com.example.demo.hibernate.model.SalesByStore"/>
+      <mapping class="com.example.demo.hibernate.model.StaffList"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
