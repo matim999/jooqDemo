@@ -2,6 +2,7 @@ package com.example.demo.hibernate.repository;
 
 import com.example.demo.hibernate.model.Actor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Collection;
 
