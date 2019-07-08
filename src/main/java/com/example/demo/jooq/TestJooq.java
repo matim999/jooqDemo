@@ -1,6 +1,5 @@
 package com.example.demo.jooq;
 
-import com.example.demo.dto.FilmList;
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Result;
@@ -45,7 +44,7 @@ public class TestJooq {
 
     }
 
-    public List<FilmList> findFilmList() {
+    public String findFilmList() {
         Field<Integer> fid = Film.FILM.FILM_ID.as("fid");
         Field<String> category = Category.CATEGORY.NAME.as("category");
         Field<java.math.BigDecimal> price = Film.FILM.RENTAL_RATE.as("price");
@@ -60,12 +59,14 @@ public class TestJooq {
                 .groupBy(Film.FILM.FILM_ID, Film.FILM.TITLE, Film.FILM.DESCRIPTION, Category.CATEGORY.NAME, Film.FILM.RENTAL_RATE, Film.FILM.LENGTH, Film.FILM.RATING)
                 .orderBy(Film.FILM.FILM_ID.desc())
                 .seek(888)
-                .fetchInto(FilmList.class);
+                .fetch()
+                .formatHTML();
+//                .fetchInto(FilmList.class);
     }
 
-    public void saveNewActor() {
+    public void saveNewActor(String name, String lastName) {
         Result<ActorRecord> execute = create.insertInto(Tables.ACTOR, org.jooq.codegen.maven.example.tables.Actor.ACTOR.FIRST_NAME, org.jooq.codegen.maven.example.tables.Actor.ACTOR.LAST_NAME)
-                .values("LUL", "tewtwe")
+                .values(name, lastName)
                 .returning(org.jooq.codegen.maven.example.tables.Actor.ACTOR.LAST_NAME)
                 .fetch();
         System.out.println(execute.toString());

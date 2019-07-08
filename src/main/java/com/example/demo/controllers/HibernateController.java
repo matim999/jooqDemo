@@ -5,12 +5,8 @@ import com.example.demo.hibernate.repository.ActorRepository;
 import com.example.demo.hibernate.repository.CategoryRepository;
 import com.example.demo.jooq.TestJooq;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
@@ -35,8 +31,9 @@ public class HibernateController {
     }
 
     @PostMapping(path = "/jooq/actors")
-    public void createNewActorsJooq() {
-        testJooq.saveNewActor();
+    public void createNewActorsJooq(@RequestParam String name,
+                                    @RequestParam String lastName) {
+        testJooq.saveNewActor(name, lastName);
     }
 
     @GetMapping(path = "/jooq/actors")
